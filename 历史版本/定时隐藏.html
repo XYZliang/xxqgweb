@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>加载图</title>
+<style> 
+.tab{ 
+    border:1px solid  #f00; 
+    width:400px; 
+    height:400px; 
+    background:#360; 
+    margin:auto; 
+    padding:0px; 
+    overflow:hidden; 
+    position:relative; 
+    left:0px; 
+    top:0px 
+} 
+</style> 
+<script> 
+H=400; 
+W=400; 
+id='timing_hidden' 
+function show_con(){ 
+var obj_nav=document.getElementById(id) 
+var n=20,t=50; 
+var timers=new Array(n); 
+    for(var i=0;i<n;i++){( 
+     function(){ 
+      if(timers[i]) clearTimeout(timers[i]); 
+      var j=i; 
+      timers[i]=setTimeout(function(){ 
+       obj_nav.style.height=H-Math.round(H*(j+1)/n); 
+       obj_nav.style.width=W-Math.round(W*(j+1)/n); 
+       obj_nav.style.left=Math.round(W*(j+1)/n)/2; 
+       },(i+1)*t); 
+     } 
+    )()}; 
+} 
+setTimeout("show_con()",3000); 
+</script> 
+</head> 
+ 
+<body> 
+<div id="timing_hidden" class="tab"> 
+    提示：3秒钟后这个层自动隐藏，可自定义时间。 
+</div> 
+</body> 
+</html> 

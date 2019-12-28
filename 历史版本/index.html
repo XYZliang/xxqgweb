@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>侧边导航</title>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "microsoft yahei";
+    color: #000;
+    font-size: 14px;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+.block {
+    padding: 20px 0;
+}
+.right_nav {
+    right: 0;
+    bottom: 100px;
+    position: fixed;
+    text-align: left;
+    overflow: hidden;
+    z-index: 999;
+}
+.right_nav li {
+    background: #0085cd;
+    margin: 4px 0;
+    padding: 10px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    right: -70px;
+}
+.right_nav li .iconBox {
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.right_nav li img {
+    width: 30px;
+    height: 30px;
+}
+.right_nav li h4 {
+    color: #fff;
+    font-size: 14px;
+    margin: 2px 0;
+    margin-left: 15px;
+}
+.right_nav li:hover {
+    background: #cf1322
+}
+.right_nav li .hideBox {
+    display: none;
+    position: absolute;
+    right: 120px;
+    padding: 10px;
+    padding-right: 15px;
+    top: -10px;
+    z-index: 999;
+}
+.right_nav li .hideBox .hb {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-top: 2px solid #0085cd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.right_nav li .hideBox .hb h5 {
+    padding: 5px 0;
+    border-bottom: 2px solid #ccc;
+    color: #0085cd;
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+}
+.right_nav li .hideBox .hb p {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 700;
+	text-align: center;
+}
+.right_nav li .hideBox .hb .qqtalk {
+    margin-top: 10px;
+}
+.right_nav li .hideBox .hb .qqtalk a {
+    display: flex;
+    align-items: center
+}
+.right_nav li .hideBox .qqtalk img {
+    width: 25px;
+    height: 25px;
+}
+.right_nav li .hideBox .hb .qqtalk p {
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+    margin-top: -5px;
+    margin-left: 5px;
+}
+.right_nav li:nth-child(3) .hideBox img {
+    width: 140px;
+    height: 140px;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<ul class="right_nav">
+  <li>
+    <div class="iconBox"><img src="image/search.png" alt=""> <a href="#">
+      <h4>站内搜索</h4>
+      </a> </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/studyico.png" alt="">
+      <h4>我的学习</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/book.png" alt="">
+      <h4>我的书房</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/money.png" alt="">
+      <h4>我的积分</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/writing.png" alt="">
+      <h4>我要投稿</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/Feedback.png" alt="">
+      <h4>我要反馈</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/phone.png" alt="">
+      <h4>手机app</h4>
+    </div>
+    <div class="hideBox">
+      <div class="hb">
+        <h5>手机扫一扫下载</h5>
+        <img style="width: 112px;height: 112px;" src="image/qr.png" alt=""> </div>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/messages.png" alt="">
+      <h4>联系我们</h4>
+    </div>
+    <div class="hideBox" style="display: none; opacity: 1;">
+      <div class="hb" style="width: 100px;">
+        <h5>服务电话</h5>
+        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1 2 3 6 1</font></font></p>
+        <h5>值班电话</h5>
+        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">010-55614303<br>
+          010-55624311</font></font></p>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="image/info.png" alt="">
+      <h4>关于网页</h4>
+    </div>
+    <div class="hideBox" style="display: none; opacity: 1;">
+      <div style="bottom: 150px;position: relative;" class="hb">
+        <h5>网页制作：吴彦组</h5>
+        <p><font style="vertical-align: inherit;font-size: 13px;">张亮 刘舒涵 邓嘉琪<br>
+          指导老师：汪彩霞<br>
+          指导助教：夏禹<br>
+          </font></p>
+        <h5>首页设计思路来源:</h5>
+        <p><font style="vertical-align: inherit;font-size: 13px;"><a style="color: red" href="https://www.apple.com.cn/cn/iphone-11-pro/">Apple中国</a><br>
+          <a style="color: red" href="https://sockboom.cn/">sockboom</a></font></p>
+      </div>
+    </div>
+  </li>
+  <li style="display: none;">
+    <div class="iconBox top"> <img src="imgs/rntop.png" alt="">
+      <h4>回到顶部</h4>
+    </div>
+  </li>
+</ul>
+<script src="js/jquery-3.4.1.js"></script> 
+<script type="text/javascript">
+$(function () {
+    var offset_top = $('.right_nav').offset().top; //获取右侧导航距离顶部的高度
+    var begin = 0,
+       end = 0,
+       timer = null;
+    $('.right_nav li:last').hide(); //先将回到顶部隐藏
+
+    $(window).scroll(function () {
+       clearInterval(timer);
+       var scroll_top = $(window).scrollTop();
+       end = offset_top + scroll_top;
+       scroll_top > 100 ? $('.right_nav li:last').fadeIn() : $('.right_nav li:last').fadeOut(); //滚动距离判断是否显示回到顶部
+
+       timer = setInterval(function () { //滚动定时器
+          begin = begin + (end - begin) * 0.2;
+          if (Math.round(begin) === end) {
+             clearInterval(timer);
+          }
+       }, 10);
+    });
+ });
+
+ //右侧导航伸缩效果
+ var right_nav = $(".right_nav");
+ var tempS;
+ $(".right_nav").hover(function () {
+       var thisObj = $(this);
+       tempS = setTimeout(function () {
+          thisObj.find("li").each(function (i) {
+             var tA = $(this);
+             setTimeout(function () {
+                tA.animate({
+                   right: "0"
+                }, 200);
+             }, 50 * i);
+          });
+       }, 200);
+    },
+    function () {
+       if (tempS) {
+          clearTimeout(tempS);
+       }
+       $(this).find("li").each(function (i) {
+          var tA = $(this);
+          setTimeout(function () {
+             tA.animate({
+                right: "-70"
+             }, 200, function () {});
+          }, 50 * i);
+       });
+    });
+
+ //右侧导航点击事件
+ $(".right_nav li").each(function (i) {
+    if (i == 8 || i == 7 || i == 6) {
+       $(this).mouseover(function () {
+          $(this).children(".hideBox").stop().fadeIn();
+          right_nav.css('overflow', 'visible')
+       });
+       $(this).mouseout(function () {
+          $(this).children(".hideBox").hide();
+          right_nav.css('overflow', 'hidden')
+       });
+    } else if (i == 4) {
+       $(this).click(function () {
+          location.href = 'https://www.baidu.com/';
+       })
+    } else if (i == 9) {
+       $(this).click(function () {
+          $('body,html').animate({
+             scrollTop: 0
+          }, 400);
+       })
+    }
+ })
+	</script>
+</body>
+</html>

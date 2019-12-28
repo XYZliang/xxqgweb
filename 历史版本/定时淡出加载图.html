@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sock</title>
+<style type="text/css">
+	#loadingbg{
+		position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(52, 152, 219); z-index: 999; display: block;
+	}
+#loadingdiv {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+    animation: rotateplane 1.2s infinite ease-in-out;
+	position: fixed;margin-left: 49%;top:49%;
+}
+@-webkit-keyframes rotateplane {
+0% {
+-webkit-transform: perspective(120px)
+}
+50% {
+-webkit-transform: perspective(120px) rotateY(180deg)
+}
+100% {
+-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+}
+}
+@keyframes rotateplane {
+0% {
+transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+}
+50% {
+transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+}
+100% {
+transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+}
+}
+</style>
+<script src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $("#loadingbg").fadeOut(2000);
+    $("#loadingdiv").fadeOut(2000);
+  },2000);
+});
+</script>
+</head>
+
+<body style="background-color: antiquewhite;">
+<div id="loadingbg">
+  <div id="loadingdiv"></div>
+</div>
+</body>
+</html>

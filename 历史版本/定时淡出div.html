@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body {
+    background: #D7FFF7;
+}
+div {
+    background: #0080FF;
+    width: 500px;
+    height: 200px;
+    padding: 20px;
+    color: #fff;
+    display: block;
+}
+</style>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+$("div").animate({ opacity:'show'},{ duration: 100 }).fadeOut(2000);
+});
+</script>
+</head>
+<body>
+<div>
+<h3>淡入淡出</h3>
+<p>利用jquery进行控制，实现div层的淡入淡出。</p>
+<p>这里js控制的三个数值，第一个为从上往下移动的距离，第二个为淡入时间，第三个为淡出时间，这三个时间可以根据自己需要自行调整。</p>
+<p>src="js/jquery-3.4.1.js"这个为调用的jquery库，可以在网上下载到，最新版本为jquery-1.4.2.js,路径根据自己实际情况进行调整</p>
+</div>
+</body>
+</html>

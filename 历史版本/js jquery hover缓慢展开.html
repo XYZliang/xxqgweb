@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js jquery hover缓慢展开</title>
+<style type="text/css">
+body {
+    cursor: url("image/mouse1.png"), default;
+}
+a {
+    cursor: url("image/mouse2.png"), pointer;
+    text-decoration: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#guide {
+    float: right;
+    height: 50px;
+    width: 500px;
+    line-height: 50px;
+}
+#guide ul li {
+    float: left;
+    width: 100px;
+    list-style: none;
+    text-align: center;
+    color: white;
+    height: 50px;
+}
+#guide ul li a {
+    display: block;
+    width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    color: white;
+}
+#guide ul li:hover a {
+    background-color: rgba(0,0,0,0.70);
+}
+.second li:hover a {
+    background-color: rgba(0,0,0,0.60)!important;
+}
+.second {
+    display: none;
+}
+.firstword {
+    font-size: 18px;
+    font-weight: 500;
+}
+.secondword{
+	font-size: 14px;
+}
+</style>
+<script src="js/jquery-3.4.1.js"></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".first").hover(function(){
+  $(".second").toggle(1000);
+  });
+});
+</script>
+</head>
+
+<body style="background-color: red;">
+<div id="guide">
+  <ul class="first">
+    <li><a class="firstword" href="">学习中心</a>
+      <ul class="second">
+        <li><a class="secondword" href="https://www.xuexi.cn/cc72a0454287bdedb7e2c156db55e818/71eb7214c6c0c1f5e6ec6e29564decb4.html">学习新思想</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/0809b8b6ab8a81a4f55ce9cbefa16eff/ae60b027cb83715fd0eeb7bb2527e88b.html">学习电视台</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/d184e7597cc0da16f5d9f182907f1200/9a3668c13f6e303932b5e0e100fc248b.html">学习理论</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/f547c0f321ac9a0a95154a21485a29d6/1cdd8ef7bfc3919650206590533c3d2a.html">学习慕课</a></li>
+		<li><a class="secondword" href="https://www.xuexi.cn/b069a45c80585e78b558c64306bfdf92/53194398355c363c5c635c74a70c7b45.html">学习文化</a></li>
+		<li><a class="secondword" href="https://www.xuexi.cn/896bddc5f57a423b857a85eb40f98945/72742e3e40c96ade71e42b6e7ed42419.html">学习科学</a></li>
+      </ul>
+    </li>
+    <li><a class="firstword" href="">信息资源</a>
+      <ul class="second">
+        <li><a class="secondword" href="https://www.xuexi.cn/5c90534c80d14c060d6683fa960e3676/82573c005c024095037d2186a02244cb.html">习近平文汇</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/f997e76a890b0e5a053c57b19f468436/018d244441062d8916dd472a4c6a0a0b.html">十九大时间</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/a9d25ec4ca996c6100d2982d33a1d8b2/4f02a12dd5663651422f5c55e10ef19e.html">强国新军</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/261c9a142ef8e6375ed554815a26d585/f2d8ff735982530b7a8c9bb90fa99f68.html">环球视野</a></li>
+      </ul>
+    </li>
+    <li><a class="firstword" href="">认识祖国</a>
+      <ul class="second">
+        <li><a class="secondword" href="https://www.xuexi.cn/482f31e90c481f2161a19ecfcbb91f8b/e6109f421e472b4399b006ba21bc2ecd.html">红色中国</a></li>
+        <li><a class="secondword" href="https://www.xuexi.cn/b51582609167f915bcd0f5532daee48d/778eae63fed91ff4c54dc15f22c7fc31.html">美丽中国</a></li>
+      </ul>
+    </li>
+    <li><a class="firstword" href="">用户登录</a> </li>
+  </ul>
+</div>
+</body>
+</html>

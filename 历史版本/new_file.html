@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				width: 100vw;
+				overflow-x: hidden;
+			}
+			.page{
+				width: 100vw;
+				height: 100vh;
+				position: relative;
+			}
+			.page:nth-of-type(1){
+				background: black;
+			}
+			.page:nth-of-type(2){
+				background: yellowgreen;
+			}
+			.page:nth-of-type(3){
+				background: cornflowerblue;
+			}
+			.page div{
+				width: 160px;
+				height: 40px;
+				border-radius: 20px;
+				box-sizing: border-box;
+				border: 2px solid rgba(255,255,255,.8);
+				position: absolute;
+				bottom: 50px;
+				left: 50%;
+				margin-left: -80px;
+				cursor: pointer;
+			}
+			.page div:hover{
+				background: rgba(255,255,255,.8);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page"><div></div></div>
+		<div class="page"><div></div></div>
+		<div class="page"></div>
+		<script src="js/jquery-3.4.1.js"></script> 
+		<script type="text/javascript">
+			$("body").on("click",".page div",function(){
+//				$(this).parent(),this是.page div,this的parent是.page
+				var height=$(this).parent().height();/*一屏高度*/
+				var index = $(this).parent().index(".page")+1;
+				if(index<3){
+					$("html,body").animate({scrollTop:height*index}, 500);
+				}
+	    	});
+		</script>
+	</body>
+</html>

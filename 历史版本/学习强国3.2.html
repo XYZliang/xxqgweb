@@ -1,0 +1,478 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学习强国</title>
+<style type="text/css">
+html {
+    height: 100%
+}
+body {
+    cursor: url("image/mouse1.png"), default;
+    height: 100%;
+}
+a {
+    cursor: url("image/mouse2.png"), pointer;
+    text-decoration: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#loadingbg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #ce0000 url("image/loadingbg.jpg") no-repeat top center;
+    background-size: 100%;
+    z-index: 999;
+    display: block;
+    z-index: 888;
+}
+#loadingdiv {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+    animation: rotateplane 1.2s infinite ease-in-out;
+    position: fixed;
+    margin-left: 49%;
+    top: 49%;
+    z-index: 999;
+    cursor: url("image/mouse-Easter eggs.png"), default;
+}
+#big1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("image/bg1.jpg") no-repeat;
+    background-color: rgb(254,246,231);
+    background-size: 100% 100%;
+    top: 0px;
+    z-index: 666;
+    background-position-y: -10px;
+}
+#top1 {
+    width: 100%;
+    height: 10%;
+    margin-top: 10px;
+    z-index: 777;
+    position: absolute;
+    top: 0;
+}
+#top1bg {
+    width: 100%;
+    height: 11%;
+    z-index: 777;
+    position: absolute;
+    top: 0;
+    z-index: 555;
+    background-color: rgba(0,0,0,0.70)
+}
+#guide {
+    float: right;
+    height: 50px;
+    width: 500px;
+    line-height: 50px;
+}
+#guide ul li {
+    float: left;
+    width: 100px;
+    list-style: none;
+    text-align: center;
+    color: white;
+    height: 50px;
+}
+#return {
+    font-size: 18px;
+    line-height: 50px;
+    float: right;
+    width: 100px;
+    text-align: center;
+    color: white;
+    z-index: 555;
+    display: none;
+}
+#return:hover {
+    background-color: rgba(0,0,0,0.70);
+}
+#guide ul li a {
+    display: block;
+    width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    color: white;
+}
+#guide ul li:hover a {
+    background-color: rgba(0,0,0,0.70);
+}
+.second li:hover a {
+    background-color: rgba(0,0,0,0.60)!important;
+}
+.second {
+    display: none;
+}
+.second li {
+    height: 30px!important;
+    line-height: 30px!important;
+}
+.second li a {
+    height: 30px!important;
+}
+.firstword {
+    font-size: 18px;
+    font-weight: 500;
+}
+.secondword {
+    font-size: 12px;
+}
+#news {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+#newsword1 {
+    color: gold;
+    font-size: 28px;
+    font-weight: 700;
+}
+.image {
+    list-style: none;
+    height: 100%;
+}
+.newsbox {
+    width: 61.8%;
+    height: 61.8%;
+    position: relative;
+    margin: 10px auto;
+}
+.image li {
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: absolute;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {}
+.imagesize {
+    height: 100%;
+    width: 100%;
+}
+.imageword {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.60);
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+}
+.num {
+    position: absolute;
+    list-style: none;
+    cursor: pointer;
+    height: 20px;
+    right: 0;
+    margin-top: 10px;
+    cursor: url("image/mouse3.png"), pointer;
+}
+.num li {
+    float: left;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: gray;
+    margin: 0 4px;
+    text-align: center;
+    line-height: 20px;
+}
+.num .current {
+    background-color: red;
+}
+.arrow {
+    height: 60px;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    opacity: 0.5;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    display: none;
+    bottom: 48%;
+    cursor: url("image/mouse3.png"), pointer;
+}
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
+}
+#move {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 15px;
+    height: 40px;
+    width: 100%;
+}
+#movebotton {
+    margin: 0px auto;
+    height: 40px;
+    width: 160px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 2px solid rgba(255,225,255,0.60);
+    cursor: pointer;
+}
+#movebotton:hover {
+    background: rgba(255,255,255,0.60);
+}
+#big2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("image/bg2.jpg") no-repeat;
+    background-size: 100% 100%;
+    z-index: 111;
+}
+/*定义loadgingdiv旋转方式（-webkit是为了适配旧浏览器）*/
+@-webkit-keyframes rotateplane {
+0% {
+-webkit-transform: perspective(120px)
+}
+50% {
+-webkit-transform: perspective(120px) rotateY(180deg)
+}
+100% {
+-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+}
+}
+@keyframes rotateplane {
+0% {
+transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+}
+50% {
+transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+}
+100% {
+transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+}
+}
+</style>
+</head>
+
+<body>
+<div id="loadingbg">
+  <div id="loadingdiv"></div>
+</div>
+<div id="top1"> <img src="image/logo.png" style="float: left;margin-left: 15px;"  height="75%" alt=""/> <img src="image/xilogo.png" style="float: left;margin-left: 30px;" height="87.5%" alt=""/>
+  <div id="guide">
+    <ul class="first">
+      <li><a class="firstword" href="">学习中心</a>
+        <ul class="second">
+          <li><a class="secondword" href="https://www.xuexi.cn/cc72a0454287bdedb7e2c156db55e818/71eb7214c6c0c1f5e6ec6e29564decb4.html">学习新思想</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/0809b8b6ab8a81a4f55ce9cbefa16eff/ae60b027cb83715fd0eeb7bb2527e88b.html">学习电视台</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/d184e7597cc0da16f5d9f182907f1200/9a3668c13f6e303932b5e0e100fc248b.html">学习理论</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/f547c0f321ac9a0a95154a21485a29d6/1cdd8ef7bfc3919650206590533c3d2a.html">学习慕课</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/b069a45c80585e78b558c64306bfdf92/53194398355c363c5c635c74a70c7b45.html">学习文化</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/896bddc5f57a423b857a85eb40f98945/72742e3e40c96ade71e42b6e7ed42419.html">学习科学</a></li>
+        </ul>
+      </li>
+      <li><a class="firstword" href="">信息资源</a>
+        <ul class="second">
+          <li><a class="secondword" href="https://www.xuexi.cn/5c90534c80d14c060d6683fa960e3676/82573c005c024095037d2186a02244cb.html">习近平文汇</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/f997e76a890b0e5a053c57b19f468436/018d244441062d8916dd472a4c6a0a0b.html">十九大时间</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/a9d25ec4ca996c6100d2982d33a1d8b2/4f02a12dd5663651422f5c55e10ef19e.html">强国新军</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/261c9a142ef8e6375ed554815a26d585/f2d8ff735982530b7a8c9bb90fa99f68.html">环球视野</a></li>
+        </ul>
+      </li>
+      <li><a class="firstword" href="">认识祖国</a>
+        <ul class="second">
+          <li><a class="secondword" href="https://www.xuexi.cn/482f31e90c481f2161a19ecfcbb91f8b/e6109f421e472b4399b006ba21bc2ecd.html">红色中国</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/b51582609167f915bcd0f5532daee48d/778eae63fed91ff4c54dc15f22c7fc31.html">美丽中国</a></li>
+        </ul>
+      </li>
+      <li><a class="firstword" href="https://pc.xuexi.cn/points/login.html?ref=https%3A%2F%2Fwww.xuexi.cn%2F">用户登录</a> </li>
+    </ul>
+  </div>
+  <div id="return" class="firstword">返回首页</div>
+</div>
+<div id="top1bg"></div>
+<div id="big1">
+		<div style="width: 100%;height: 20%"></div>
+  <div id="news"><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=3235568623838938416"><span id="newsword1">中央经济工作会议在北京举行</span></a><br>
+    <a  style="color: goldenrod;" href="https://www.xuexi.cn/lgpage/detail/index.html?id=3235568623838938416">习近平在会上发表重要讲话 总结2019年经济工作 分析当前经济形势 部署2020年经济工作</a></div>
+  <div class="newsbox mouse2">
+    <ul class="image">
+      <li><a href=""><img class="imagesize" src="image/new1.jpg" alt=""/>
+        <div class="imageword">习近平在中央经济工作会议上发表重要讲话</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="image/new2.jpg" alt=""/>
+        <div class="imageword">中央军委举行晋升上将军衔仪式 习近平颁发命令状并向晋衔的军官表示祝贺</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="image/new3.jpg" alt=""/>
+        <div class="imageword">习近平会见出席“2019从都国际论坛”外方嘉宾</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="image/new4.jpg" alt=""/>
+        <div class="imageword">习近平同萨尔瓦多总统布克尔会谈</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="image/new5.jpg" alt=""/>
+        <div class="imageword">习近平同俄罗斯总统普京视频连线 共同见证中俄东线天然气管道投产通气仪式</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="image/new6.jpg" alt=""/>
+        <div class="imageword">习近平会见俄罗斯联邦安全会议秘书帕特鲁舍夫</div>
+        </a></li>
+    </ul>
+    <ul class="num">
+      <li class="current">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+    <div class="left arrow">&lt;</div>
+    <div class="right arrow">&gt;</div>
+  </div>
+  <div id="move">
+    <div id="movebotton"><img style="display: block;margin:12px auto;" src="image/next.png" width="22" height="13" alt="嘻嘻嘻嘻"/></div>
+  </div>
+</div>
+<div id="big2"></div>
+<script src="js/jquery-3.4.1.js"></script> 
+<script type="text/javascript">
+	/*缓缓展开二级菜单*/
+$(document).ready(function () {
+    $(".first").hover(function () {
+        $(".second").toggle(1000);
+    });
+});
+/*加载动画持续与淡出*/
+$(document).ready(function () {
+    setTimeout(function () {
+        $("#loadingbg").fadeOut(2000);
+        $("#loadingdiv").fadeOut(2000);
+    }, 2000);
+});
+/*点击下一页按钮，向上主页抽出*/
+$(document).ready(function () {
+    $("#movebotton").click(function () {
+        $("#big1").animate({
+            top: "-100vh"
+        }, 1000);
+    });
+});
+/*点击下一页按钮，显出返回首页按钮*/
+$(document).ready(function () {
+    $("#movebotton").click(function () {
+        setTimeout(function () {
+            $("#return").toggle(1000);
+        }, 500);
+    });
+});
+/*点击返回按钮，主页返回*/
+$(document).ready(function () {
+    $("#return").click(function () {
+        $("#big1").animate({
+            top: "0vh"
+        }, 1000);
+    });
+});
+/*点击返回按钮，隐藏返回首页按钮*/
+$(document).ready(function () {
+    $("#return").click(function () {
+        setTimeout(function () {
+            $("#return").toggle(1000);
+        }, 100);
+    });
+});
+/*轮播图*/
+function move() {
+    $("#move").animate({
+        top: '-=20px',
+    });
+    $("#move").animate({
+        top: '+=20px',
+    });
+};
+setInterval("move()", 0);
+var i = 0,
+    timer;
+var sum = $(".image li").length;
+$(function () {
+    $(".image li").eq(0).show();
+
+    $(".newsbox").hover(function () {
+        $(".arrow").show();
+        clearInterval(timer);
+    }, function () {
+        $(".arrow").hide();
+        iLunbo();
+    })
+    iLunbo();
+
+    $(".arrow").hover(function () {
+        clearInterval(timer);
+    });
+    /*左箭头控制轮播*/
+    $(".left").click(function () {
+        clearInterval(timer);
+        if (i == 0) {
+            i = sum;
+        }
+        i--;
+        startLunbo();
+        iLunbo();
+    });
+    /*右箭头控制轮播*/
+    $(".right").click(function () {
+        clearInterval(timer);
+        if (i == sum - 1) {
+            i = -1;
+        }
+        i++;
+        startLunbo();
+        iLunbo();
+    });
+    /*提示信息变换*/
+    $(".num>li").hover(function () {
+        clearInterval(timer);
+        i = $(this).index();
+        console.log(i);
+        startLunbo();
+    });
+});
+/*自动轮播*/
+function iLunbo() {
+    timer = setInterval(function () {
+        i++;
+        if (i == sum - 1) {
+            i = -1;
+        }
+        startLunbo();
+    }, 4000)
+}
+/*图片轮播和提示信息*/
+function startLunbo() {
+    if (i == 6) {
+        i = 0;
+    }
+    $(".image>li").eq(i).fadeIn().siblings().fadeOut();
+    $(".num>li").eq(i).addClass("current").siblings().removeClass("current");
+}
+</script>
+</body>
+</html>

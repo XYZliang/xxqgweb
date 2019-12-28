@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>认识祖国</title>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+		text-decoration:none;
+		list-style:none;
+	}
+
+	a{
+		color:#fff;
+		font-size:13px;
+		display:block;
+	}
+
+	a:hover{
+		color:#ccc;
+	}
+
+  	.wrap{
+		margin:60px auto;
+		width:250px;
+		height:auto;
+	}
+	
+	.container-top{
+		height:30px;
+	}
+
+	.container-bottom{
+		height:60px;
+		overflow:hidden;
+	}
+	
+	.container-top ul{
+		height:30px;
+	}
+
+	.container-top ul li{
+		float:left;
+		width:50px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		background-color:#ccc;
+	}
+	
+	.container-bottom ul{
+		height:60px;
+		background-image:linear-gradient(to right,#FF00FF,#E066FF);
+	}
+
+	.container-bottom ul li{
+		width:125px;
+		height:30px;
+		line-height:30px;
+		float:left;
+		text-align:center;
+		background:none;
+	}
+
+	.select{
+		background-image:linear-gradient(to right,dimgray,gray);
+	}
+	</style>
+</head>
+
+<body>
+<div class="wrap">
+		<div class="container-top" id="list">
+			<ul>
+				<li><a href="">论坛</a></li>
+				<li><a href="">博客</a></li>
+				<li><a href="">交流</a></li>
+				<li><a href="">社区</a></li>
+				<li><a href="">反馈</a></li>
+			</ul>
+		</div>
+		<div class="container-bottom" id="item">
+			<div class="con">
+				<ul>
+
+				</ul>
+			</div>
+			<div class="con">
+				<ul>
+
+				</ul>
+			</div>
+			<div class="con">
+				<ul>
+
+				</ul>
+			</div>
+			<div class="con">
+				<ul>
+
+				</ul>
+			</div>
+			<div class="con">
+				<ul>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+<script src="js/jquery-3.4.1.js"></script> 
+<script type="text/javascript">
+	function $(id){
+		return typeof id === "string"?document.getElementById(id):document;
+	}
+	
+	window.onload = function(){
+		//获取5个标题名;
+		var items = $("list").getElementsByTagName("li");
+		//获取5个内容盒子;
+		var	divs = $("item").getElementsByTagName("div");
+		if(items.length != divs.length){
+			return;
+		}
+		
+		//循环遍历标题名和内容盒子;
+		for(var i = 0,len = items.length; i < len; i++){
+			items[i].id = i;
+			items[i].onmouseover = function(){
+				for(var j = 0,len = items.length; j < len; j++){
+					items[j].className = "";
+					divs[j].style.display = "none";
+				}
+				this.className = "select";	
+				divs[this.id].style.display = "block";
+			}
+		}
+	}
+</script> 
+</body>
+</html>

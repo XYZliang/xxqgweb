@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>用jQuery插件实现的滚屏效果,带上下翻页控制按钮</title>
+<style type="text/css">
+ul,li{margin:0;padding:0}
+#scrollDiv{width:300px;height:100px;min-height:25px;line-height:25px;border:#ccc 1px solid;overflow:hidden}
+#scrollDiv li{height:25px;padding-left:10px;}
+</style>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+(function($){
+$.fn.extend({
+        Scroll:function(opt,callback){
+                //参数初始化
+                if(!opt) var opt={};
+                var _btnUp = $("#"+ opt.up);//Shawphy:向上按钮
+                var _btnDown = $("#"+ opt.down);//Shawphy:向下按钮
+                var timerID;
+                var _this=this.eq(0).find("ul:first");
+                var     lineH=_this.find("li:first").height(), //获取行高
+                        line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                        speed=opt.speed?parseInt(opt.speed,10):500; //卷动速度，数值越大，速度越慢（毫秒）
+                        timer=opt.timer //?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
+                if(line==0) line=1;
+                var upHeight=0-line*lineH;
+                //滚动函数
+                var scrollUp=function(){
+                        _btnUp.unbind("click",scrollUp); //Shawphy:取消向上按钮的函数绑定
+                        _this.animate({
+                                marginTop:upHeight
+                        },speed,function(){
+                                for(i=1;i<=line;i++){
+                                        _this.find("li:first").appendTo(_this);
+                                }
+                                _this.css({marginTop:0});
+                                _btnUp.bind("click",scrollUp); //Shawphy:绑定向上按钮的点击事件
+                        });
+
+                }
+                //Shawphy:向下翻页函数
+                var scrollDown=function(){
+                        _btnDown.unbind("click",scrollDown);
+                        for(i=1;i<=line;i++){
+                                _this.find("li:last").show().prependTo(_this);
+                        }
+                        _this.css({marginTop:upHeight});
+                        _this.animate({
+                                marginTop:0
+                        },speed,function(){
+                                _btnDown.bind("click",scrollDown);
+                        });
+                }
+               //Shawphy:自动播放
+                var autoPlay = function(){
+                        if(timer)timerID = window.setInterval(scrollUp,timer);
+                };
+                var autoStop = function(){
+                        if(timer)window.clearInterval(timerID);
+                };
+                 //鼠标事件绑定
+                _this.hover(autoStop,autoPlay).mouseout();
+                _btnUp.css("cursor","pointer").click( scrollUp ).hover(autoStop,autoPlay);//Shawphy:向上向下鼠标事件绑定
+                _btnDown.css("cursor","pointer").click( scrollDown ).hover(autoStop,autoPlay);
+
+        }       
+})
+})(jQuery);
+
+$(document).ready(function(){
+        $("#scrollDiv").Scroll({line:4,speed:500,timer:3000,up:"btn1",down:"btn2"});
+});
+</script>
+</head>
+
+<body>
+<p>多行滚动演示：</p>
+<div id="scrollDiv">
+  <ul>
+<li>
+<a title="超级漂亮的几款清新、常用的网页CSS布局配色实例" target="_blank" href="http://www.csrcode.cn/html/txdm/tcys/1061.htm">
+超级漂亮的几款清新、常用布局配色</a></li>
+<li>
+<a title="CSS制作斜角上有背景图片的Div层" target="_blank" href="http://www.csrcode.cn/html/txdm/tcys/1060.htm">
+CSS制作斜角上有背景图片的Div层</a></li>
+<li>
+<a title="Js实现的层展开、层折叠效果，默认时候层是折叠的" target="_blank" href="http://www.csrcode.cn/html/txdm/tcys/1059.htm">
+Js实现的层展开、层折叠效果，默认折叠</a></li>
+<li>
+<a title="DIV始终固定在网页右下角位置的CSS实现方法" target="_blank" href="http://www.csrcode.cn/html/txdm/tcys/1058.htm">
+DIV固定在右下角位置的CSS实现方法</a></li>
+<li>
+<a title="JavaScript未知高度元素的垂直居中的方法" target="_blank" href="http://www.csrcode.cn/html/txdm/tcys/1057.htm">
+JavaScript未知高度元素的垂直居中的方法</a></li>
+<li>
+<a title="渐变彩色的文字" target="_blank" href="http://www.csrcode.cn/html/txdm/ljwb/1056.htm">
+渐变彩色的文字</a></li>
+<li>
+<a title="指定文字逐条显示" target="_blank" href="http://www.csrcode.cn/html/txdm/ljwb/1055.htm">
+指定文字逐条显示</a></li>
+<li>
+<a title="滚动的标题栏" target="_blank" href="http://www.csrcode.cn/html/txdm/qtdm/1054.htm">
+滚动的标题栏</a></li>
+<li>
+<a title="JS 4屏平滑滚动<a href='http://www.daimajiayuan.com/sitejs-15579-1.html' target='_blank'><u>幻灯片</u></a>特效" target="_blank" href="http://www.csrcode.cn/html/txdm/txtx/1036.htm">
+JS 4屏平滑滚动幻灯片特效</a></li>
+<li>
+<a title="图片的无缝滚动（纵向、横向）" target="_blank" href="http://www.csrcode.cn/html/txdm/txtx/1035.htm">
+图片的无缝滚动（纵向、横向）</a></li>
+<li>
+<a title="鼠标触及带边框的菜单" target="_blank" href="http://www.csrcode.cn/html/txdm/cddh/1034.htm">
+鼠标触及带边框的菜单</a></li>
+<li>
+<a title="比较实用的CSS控制链接颜色效果" target="_blank" href="http://www.csrcode.cn/html/txdm/ljwb/1032.htm">
+比较实用的CSS控制链接颜色效果</a></li>
+<li>
+<a title="鼠标接触或者离开图片时，图片大小会相应变化" target="_blank" href="http://www.csrcode.cn/html/txdm/txtx/1031.htm">
+鼠标接触或者离开图片时，图片大小会相应变化</a></li>
+<li>
+<a title="特殊的<a href='http://www.daimajiayuan.com/sitejs-2087-1.html' target='_blank'><u>鼠标悬停</u></a>提示" target="_blank" href="http://www.csrcode.cn/html/txdm/sbtx/1028.htm">
+特殊的鼠标悬停提示</a></li>
+  </ul>
+</div>
+<span id="btn2">向上翻页</span>
+<span id="btn1">向下翻页</span>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>加载图</title>
+<style>
+#spinner {
+    width: 60px;
+    height: 60px;
+    background: #67CF22;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotateplane 1.2s infinite ease-in-out;
+    display: block;
+}
+@keyframes rotateplane {
+0% {
+transform:perspective(220px);
+}
+50% {
+transform:perspective(220px) rotateY(180deg);
+}
+100% {
+transform:perspective(220px) rotateY(180deg) rotateX(180deg);
+}
+</style>
+</head>
+<body>
+<div id="spinner"></div>
+</body>
+</html>
