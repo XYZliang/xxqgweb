@@ -1,0 +1,1049 @@
+<!doctype html>
+<!--作者by张亮  指导：夏助教 汪老师  右侧悬浮菜单：部分修改自csdn  首页加载旋转div部分修改自：github-->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学习强国</title>
+<link rel="shortcut icon" href="https://www.z4a.net/images/2019/12/29/ico.ico">
+<style type="text/css">
+ul {
+    list-style: none;
+}
+html {
+    height: 100%
+}
+body {
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse1.png"), default;
+    height: 100%;
+    font: "Microsoft yahei", Arial;
+}
+a {
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse2.png"), pointer;
+    text-decoration: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#loadingbg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #ce0000 url("https://www.z4a.net/images/2019/12/29/loadingbg.jpg") no-repeat top center;
+    background-size: 100%;
+    z-index: 999;
+    display: block;
+}
+#loadingdiv {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+    animation: rotateplane 1.2s infinite ease-in-out;
+    position: fixed;
+    margin-left: 50%;
+    top: 50%;
+	transform: translate(-15px,-15px);
+    z-index: 999;
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse-Easter eggs.png"), default;
+}
+#big1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://www.z4a.net/images/2019/12/29/bg1.jpg") no-repeat;
+    background-color: rgb(254,246,231);
+    background-size: 100% 100%;
+    top: 0px;
+    z-index: 666;
+    background-position-y: -10px;
+}
+#top1 {
+    width: 100%;
+    height: 10%;
+    margin-top: 10px;
+    z-index: 777;
+    position: absolute;
+    top: 0;
+}
+#top1bg {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 0;
+    z-index: 555;
+    background-color: rgba(0,0,0,0.70)
+}
+#guide {
+    float: right;
+    height: 50px;
+    width: 500px;
+    line-height: 50px;
+}
+#guide ul li {
+    float: left;
+    width: 100px;
+    list-style: none;
+    text-align: center;
+    color: white;
+    height: 50px;
+}
+#return {
+    font-size: 18px;
+    line-height: 50px;
+    float: right;
+    width: 100px;
+    text-align: center;
+    color: white;
+    z-index: 555;
+    display: none;
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse2.png"), default;
+}
+#return:hover {
+    background-color: rgba(0,0,0,0.70);
+}
+#guide ul li a {
+    display: block;
+    width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    color: white;
+}
+#guide ul li:hover a {
+    background-color: rgba(0,0,0,0.70);
+}
+.second li:hover a {
+    background-color: rgba(0,0,0,0.60)!important;
+}
+.second {
+    display: none;
+}
+.second li {
+    height: 30px!important;
+    line-height: 30px!important;
+}
+.second li a {
+    height: 30px!important;
+}
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+.block {
+    padding: 20px 0;
+}
+.right_nav {
+    right: 0;
+    bottom: 100px;
+    position: fixed;
+    text-align: left;
+    overflow: hidden;
+    z-index: 888;
+}
+.right_nav li {
+    background: #0085cd;
+    margin: 4px 0;
+    padding: 10px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse2.png"), pointer;
+    position: relative;
+    right: -70px;
+}
+.right_nav li .iconBox {
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.right_nav li img {
+    width: 30px;
+    height: 30px;
+}
+.right_nav li h4 {
+    color: #fff;
+    font-size: 14px;
+    margin: 2px 0;
+    margin-left: 15px;
+}
+.right_nav li:hover {
+    background: #cf1322
+}
+.right_nav li .hideBox {
+    display: none;
+    position: absolute;
+    right: 120px;
+    padding: 10px;
+    padding-right: 15px;
+    top: -10px;
+    z-index: 999;
+}
+.right_nav li .hideBox .hb {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-top: 2px solid #0085cd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.right_nav li .hideBox .hb h5 {
+    padding: 5px 0;
+    border-bottom: 2px solid #ccc;
+    color: #0085cd;
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+}
+.right_nav li .hideBox .hb p {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+.right_nav li .hideBox .hb .qqtalk {
+    margin-top: 10px;
+}
+.right_nav li .hideBox .hb .qqtalk a {
+    display: flex;
+    align-items: center
+}
+.right_nav li .hideBox .qqtalk img {
+    width: 25px;
+    height: 25px;
+}
+.right_nav li .hideBox .hb .qqtalk p {
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+    margin-top: -5px;
+    margin-left: 5px;
+}
+.right_nav li:nth-child(3) .hideBox img {
+    width: 140px;
+    height: 140px;
+    margin-top: 10px;
+}
+.firstword {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+.secondword {
+    font-size: 0.8em;
+}
+#news {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+#newsword1 {
+    color: gold;
+    font-size: 2em;
+    font-weight: 700;
+}
+.image {
+    list-style: none;
+    height: 100%;
+}
+.newsbox {
+    width: 61.8%;
+    height: 61.8%;
+    position: relative;
+    margin: 10px auto;
+}
+.image li {
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: absolute;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+.imagesize {
+    height: 100%;
+    width: 100%;
+}
+.imageword {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.60);
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    text-align: center;
+}
+.num {
+    position: absolute;
+    list-style: none;
+    cursor: pointer;
+    height: 20px;
+    right: 0;
+    margin-top: 10px;
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse3.png"), pointer;
+}
+.num li {
+    float: left;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: gray;
+    margin: 0 4px;
+    text-align: center;
+    line-height: 20px;
+}
+.num .current {
+    background-color: red;
+}
+.arrow {
+    height: 60px;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    opacity: 0.5;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    display: none;
+    bottom: 48%;
+    cursor: url("https://www.z4a.net/images/2019/12/29/mouse3.png"), pointer;
+}
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
+}
+#move {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 15px;
+    height: 40px;
+    width: 100%;
+}
+#movebotton {
+    margin: 0px auto;
+    height: 40px;
+    width: 160px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 2px solid rgba(255,225,255,0.60);
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+    background-color: white;
+}
+#movebotton:hover {
+    background: rgba(255,255,255,0.60);
+}
+#big2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("https://www.z4a.net/images/2019/12/29/bg2.png") no-repeat;
+    background-size: 100% 100%;
+    z-index: 111;
+}
+#goto {
+    width: 1024px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.goto-box {
+    box-sizing: border-box;
+}
+.goto-list {
+    height: 500px;
+    padding: 0 15px;
+    text-align: justify
+}
+.goto-item {
+    position: relative;
+    float: left;
+    margin: 0 10px;
+    width: 310px;
+    height: 100%;
+    background: #fff;
+    text-align: center;
+    overflow: hidden;
+    font-size: 0;
+    border-radius: 10px
+}
+.goto-item:hover {
+    box-shadow: 0 1px 17px 5px rgba(156,244,255,.3);
+}
+.goto-item:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle
+}
+.goto-item img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%
+}
+.goto-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden
+}
+.goto-info h3 {
+    position: absolute;
+    top: 240px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    z-index: 30
+}
+.goto-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
+    background: #333;
+    opacity: .9;
+    border-radius: 50%;
+    z-index: 10;
+    transform: scale(1, 1);
+    transition: all .3s
+}
+.item01 .goto-tag {
+    background: #6bddd7
+}
+.item02 .goto-tag {
+    background: #56de7f
+}
+.item03 .goto-tag {
+    background: #818181
+}
+.goto-list .goto-item:hover .goto-tag {
+    transform: scale(4.9, 4.9)
+}
+.gotoimage {
+    width: 100%;
+    height: 100%;
+}
+#link {
+    width: 1000px;
+    height: 160px;
+    background-color: rgb(248, 235, 217, 0.8);
+    margin: 0 auto;
+    border-radius: 10px;
+}
+#bottom {
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    bottom: 0;
+}
+#bleft {
+    width: 150px;
+    height: 120px;
+    margin-top: 20px;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    border-right: solid 1px rgb(222, 222, 222);
+}
+#bright {
+    width: 840px;
+    height: 120px;
+    margin-top: 15px;
+    float: left;
+    font-size: 18px;
+}
+#bright a {
+    display: inline-block;
+    color: #111;
+    overflow: hidden;
+    margin-top: 0px;
+    margin-bottom: 4px;
+    margin-left: 25px;
+    line-height: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+#showstudy {
+    width: 100%;
+    height: 90vh;
+    display: none;
+    position: absolute;
+    top: 10%;
+}
+#showstudy iframe {
+    height: 90vh;
+    width: inherit;
+}
+#showxinxi {
+    width: 100%;
+    height: 90vh;
+    display: none;
+    position: absolute;
+    top: 10%;
+}
+#showxinxi iframe {
+    height: 90vh;
+    width: inherit;
+}
+#showchina {
+    width: 100%;
+    height: 90vh;
+    display: none;
+    position: absolute;
+    top: 10%;
+    z-index: 888;
+}
+#showchina iframe {
+    height: 90vh;
+    width: inherit;
+    z-index: 888;
+}
+/*定义loadgingdiv旋转方式（-webkit是为了适配旧浏览器）*/
+@-webkit-keyframes rotateplane {
+0% {
+-webkit-transform: perspective(120px)
+}
+50% {
+-webkit-transform: perspective(120px) rotateY(180deg)
+}
+100% {
+-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+}
+}
+@keyframes rotateplane {
+0% {
+transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+}
+50% {
+transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+}
+100% {
+transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+}
+}
+</style>
+</head>
+
+<body>
+<div id="loadingbg">
+  <div id="loadingdiv"></div>
+</div>
+<div id="top1"> <img src="https://www.z4a.net/images/2019/12/29/logo.png" style="float: left;margin-left: 15px;"  height="75%" alt=""/> <img src="https://www.z4a.net/images/2019/12/29/xilogo.png" style="float: left;margin-left: 30px;" height="87.5%" alt=""/>
+  <div id="guide">
+    <ul class="first">
+      <li><a class="firstword study1">学习中心</a>
+        <ul class="second">
+          <li><a class="secondword" href="https://www.xuexi.cn/cc72a0454287bdedb7e2c156db55e818/71eb7214c6c0c1f5e6ec6e29564decb4.html">学习新思想</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/0809b8b6ab8a81a4f55ce9cbefa16eff/ae60b027cb83715fd0eeb7bb2527e88b.html">学习电视台</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/d184e7597cc0da16f5d9f182907f1200/9a3668c13f6e303932b5e0e100fc248b.html">学习理论</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/f547c0f321ac9a0a95154a21485a29d6/1cdd8ef7bfc3919650206590533c3d2a.html">学习慕课</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/b069a45c80585e78b558c64306bfdf92/53194398355c363c5c635c74a70c7b45.html">学习文化</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/896bddc5f57a423b857a85eb40f98945/72742e3e40c96ade71e42b6e7ed42419.html">学习科学</a></li>
+        </ul>
+      </li>
+      <li><a class="firstword xinxi1">信息资源</a>
+        <ul class="second">
+          <li><a class="secondword" href="https://www.xuexi.cn/5c90534c80d14c060d6683fa960e3676/82573c005c024095037d2186a02244cb.html">习近平文汇</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/f997e76a890b0e5a053c57b19f468436/018d244441062d8916dd472a4c6a0a0b.html">十九大时间</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/a9d25ec4ca996c6100d2982d33a1d8b2/4f02a12dd5663651422f5c55e10ef19e.html">强国新军</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/261c9a142ef8e6375ed554815a26d585/f2d8ff735982530b7a8c9bb90fa99f68.html">环球视野</a></li>
+        </ul>
+      </li>
+      <li><a class="firstword china1">认识祖国</a>
+        <ul class="second">
+          <li><a class="secondword" href="https://www.xuexi.cn/482f31e90c481f2161a19ecfcbb91f8b/e6109f421e472b4399b006ba21bc2ecd.html">红色中国</a></li>
+          <li><a class="secondword" href="https://www.xuexi.cn/b51582609167f915bcd0f5532daee48d/778eae63fed91ff4c54dc15f22c7fc31.html">美丽中国</a></li>
+        </ul>
+      </li>
+      <li><a class="firstword" href="https://pc.xuexi.cn/points/login.html?ref=https%3A%2F%2Fwww.xuexi.cn%2F">用户登录</a> </li>
+    </ul>
+  </div>
+  <div id="return" class="firstword">返回头条</div>
+</div>
+<div id="top1bg"></div>
+<ul class="right_nav">
+  <li style="display: none;" id="return1">
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/return.png" alt=""> <a href="#">
+      <h4>返回上层</h4>
+      </a> </div>
+  </li>
+  <li style="display: none;" id="return2">
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/return.png" alt=""> <a href="#">
+      <h4>返回上层</h4>
+      </a> </div>
+  </li>
+  <li style="display: none;" id="return3">
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/return.png" alt=""> <a href="#">
+      <h4>返回上层</h4>
+      </a> </div>
+  </li>
+  <li style="display: none;" id="return11">
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/return.png" alt=""> <a href="#">
+      <h4>返回上层</h4>
+      </a> </div>
+  </li>
+  <li style="display: none;" id="return21">
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/return.png" alt=""> <a href="#">
+      <h4>返回上层</h4>
+      </a> </div>
+  </li>
+  <li style="display: none;" id="return31">
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/return.png" alt=""> <a href="#">
+      <h4>返回上层</h4>
+      </a> </div>
+  </li>
+  <li>
+    <div class="iconBox"><img src="https://www.z4a.net/images/2019/12/29/search.png" alt=""> <a href="#">
+      <h4>站内搜索</h4>
+      </a> </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/studyico.png" alt="">
+      <h4>我的学习</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/book.png" alt="">
+      <h4>我的书房</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/money.png" alt="">
+      <h4>我的积分</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/writing.png" alt="">
+      <h4>我要投稿</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/Feedback.png" alt="">
+      <h4>我要反馈</h4>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/phone.png" alt="">
+      <h4>手机app</h4>
+    </div>
+    <div class="hideBox">
+      <div class="hb">
+        <h5>手机扫一扫下载</h5>
+        <img style="width: 112px;height: 112px;" src="https://www.z4a.net/images/2019/12/29/qr.png" alt=""> </div>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/messages.png" alt="">
+      <h4>联系我们</h4>
+    </div>
+    <div class="hideBox" style="display: none; opacity: 1;">
+      <div class="hb" style="width: 100px;">
+        <h5>服务电话</h5>
+        <p><font style="vertical-align: inherit;font-size: 14px;">1 2 3 6 1</font></p>
+        <h5>值班电话</h5>
+        <p><font style="vertical-align: inherit;font-size: 14px;">010-55614303<br>
+          010-55624311</font></p>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="iconBox"> <img src="https://www.z4a.net/images/2019/12/29/info.png" alt="">
+      <h4>关于网页</h4>
+    </div>
+    <div class="hideBox" style="display: none; opacity: 1;">
+      <div style="bottom: 500px;position: relative;" class="hb">
+        <h5>网页制作：吴彦组</h5>
+        <p><font style="vertical-align: inherit;font-size: 13px;">张亮 刘舒涵 邓嘉琪<br>
+          指导老师：汪彩霞<br>
+          指导助教：夏禹<br>
+          </font></p>
+        <h5>首页设计思路来源:</h5>
+        <p><font style="vertical-align: inherit;font-size: 13px;"><a style="color: red" href="https://www.apple.com.cn/cn/iphone-11-pro/">Apple中国</a><br>
+          <a style="color: red" href="https://sockboom.cn/">sockboom</a></font></p>
+        <h5>原网页声明</h5>
+        <p><img src="https://www.z4a.net/images/2019/12/29/认识祖国/bqsm.png" width="71" height="66" alt=""/> <img src="https://www.z4a.net/images/2019/12/29/认识祖国/dzjg.png" width="63" height="77" alt=""/></p>
+        <p><font style="vertical-align: inherit;font-size: 13px;">中共中央宣传部宣传舆情研究中心版权所有<br>
+          未经书面授权禁止使用<br>
+          Copyright© 2018-2019<br>
+          by www.xuexi.cn.<br>
+          all rights reserved<br>
+          ICP备案/许可证编号：<br>
+          京ICP备18000311<br>
+          京公网安备11040102700063号</font></p>
+      </div>
+    </div>
+  </li>
+</ul>
+<div id="big1">
+  <div style="width: 100%;height: 20%"></div>
+  <div id="news">
+	  <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=3235568623838938416"><span id="newsword1">中央经济工作会议在北京举行</span></a><br>
+      <a  style="color: goldenrod;" href="https://www.xuexi.cn/lgpage/detail/index.html?id=3235568623838938416">习近平在会上发表重要讲话 总结2019年经济工作 分析当前经济形势 部署2020年经济工作</a>
+  </div>
+  <div class="newsbox mouse2">
+    <ul class="image">
+      <li><a href=""><img class="imagesize" src="https://www.z4a.net/images/2019/12/29/new1.jpg" alt=""/>
+        <div class="imageword">习近平在中央经济工作会议上发表重要讲话</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="https://www.z4a.net/images/2019/12/29/new2.jpg" alt=""/>
+        <div class="imageword">中央军委举行晋升上将军衔仪式 习近平颁发命令状并向晋衔的军官表示祝贺</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="https://www.z4a.net/images/2019/12/29/new3.jpg" alt=""/>
+        <div class="imageword">习近平会见出席“2019从都国际论坛”外方嘉宾</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="https://www.z4a.net/images/2019/12/29/new4.jpg" alt=""/>
+        <div class="imageword">习近平同萨尔瓦多总统布克尔会谈</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="https://www.z4a.net/images/2019/12/29/new5.jpg" alt=""/>
+        <div class="imageword">习近平同俄罗斯总统普京视频连线 共同见证中俄东线天然气管道投产通气仪式</div>
+        </a></li>
+      <li><a href=""><img class="imagesize" src="https://www.z4a.net/images/2019/12/29/new6.jpg" alt=""/>
+        <div class="imageword">习近平会见俄罗斯联邦安全会议秘书帕特鲁舍夫</div>
+        </a></li>
+    </ul>
+    <ul class="num">
+      <li class="current">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+    <div class="left arrow">&lt;</div>
+    <div class="right arrow">&gt;</div>
+  </div>
+  <div id="move">
+    <div id="movebotton"><span>进入<img src="https://www.z4a.net/images/2019/12/29/next.png" width="22" height="13" alt="嘻嘻嘻嘻"/>学习</span></div>
+  </div>
+</div>
+<div id="big2">
+  <div id="goto">
+    <div class="goto-box">
+      <div class="goto-list clearfix">
+        <div class="goto-item item01"> <img class="gotoimage" src="https://www.z4a.net/images/2019/12/29/study.jpg" alt="">
+          <div id="study" class="goto-info">
+            <h3>学习中心</h3>
+            <div class="goto-tag"></div>
+          </div>
+        </div>
+        <div class="goto-item item02"> <img class="gotoimage" src="https://www.z4a.net/images/2019/12/29/ziyuan.jpg" alt="">
+          <div id="ziyuan" class="goto-info">
+            <h3>信息资源</h3>
+            <div class="goto-tag"></div>
+          </div>
+        </div>
+        <div class="goto-item item03"> <img class="gotoimage" src="https://www.z4a.net/images/2019/12/29/china.jpg" alt="">
+          <div id="china" class="goto-info">
+            <h3>认识祖国</h3>
+            <div class="goto-tag"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="bottom">
+    <div id="link">
+      <div id="bleft">友情链接</div>
+      <div id="bright"><a data-locations="0" href="http://www.people.com.cn/">人民网</a><a data-locations="1" href="http://www.xinhuanet.com/">新华网</a><a data-locations="2" href="http://www.china.com.cn/">中国网</a><a data-locations="3" href="http://www.cctv.com/">央视网</a><a data-locations="4" href="http://www.cri.cn/">国际在线</a><a data-locations="5" href="http://cn.chinadaily.com.cn/">中国日报网</a><a data-locations="6" href="http://www.youth.cn/">中国青年网</a><a data-locations="7" href="http://www.ce.cn/">中国经济网</a><a data-locations="8" href="http://www.chinanews.com/">中国新闻网</a><a data-locations="9" href="http://www.gmw.cn/">光明网</a><a data-locations="10" href="http://www.cnr.cn/">央广网</a><a data-locations="11" href="http://www.workercn.cn/">中工网</a><a data-locations="12" href="http://www.dangjian.cn/">党建网</a><a data-locations="13" href="http://www.cyol.com/">中青在线</a><a data-locations="14" href="http://www.81.cn/">中国军网</a><a data-locations="15" href="http://www.legaldaily.com.cn/">法制网</a><a data-locations="16" href="http://www.qstheory.cn/">求是网</a><a data-locations="17" href="http://www.cac.gov.cn/">中国网信网</a><a data-locations="18" href="http://www.wenming.cn/">中国文明网</a><a data-locations="19" href="http://www.gov.cn/">中国政府网</a><a data-locations="20" href="http://www.moe.gov.cn/">教育部网站</a><a data-locations="21" href="http://www.mod.gov.cn/">国防部网站</a><a data-locations="22" href="http://www.mct.gov.cn/">文化和旅游部网站</a><a data-locations="23" href="http://www.scio.gov.cn/index.htm">国新办网站</a><a data-locations="24" href="http://www.shdf.gov.cn/">中国扫黄打非网</a><a data-locations="25" href="http://www.womenvoice.cn">女性之声</a><a data-locations="26" href="http://www.cnpiw.cn/index.html">中国报业</a><a data-locations="27" href="http://www.12377.cn/">中央网信办举报中心</a><a data-locations="28" href="http://www.qianlong.com/">千龙网</a><a data-locations="29" href="http://www.cssn.cn/">中国社会科学网</a><a data-locations="30" href="http://www.stdaily.com/">中国科技网</a><a data-locations="31" href="http://www.farmer.com.cn/">中国农业新闻网</a><a data-locations="32" href="https://www.1958xy.com/">西影网</a><a data-locations="33" href="http://www.12348.gov.cn/">中国法律服务网</a><a data-locations="34" href="http://www.legalinfo.gov.cn/">中国普法网</a><a data-locations="35" href="http://www.tibet.cn/">中国西藏网</a><a data-locations="36" href="http://www.cnwomen.com.cn/">中国妇女网</a><a href="http://www.jxufe.cn//">江西财经大学</a></div>
+    </div>
+  </div>
+  <div id="showstudy">
+    <iframe src="学习中心.html" seamless></iframe>
+  </div>
+  <div id="showxinxi">
+    <iframe src="信息资源.html" seamless></iframe>
+  </div>
+  <div id="showchina">
+    <iframe src="认识祖国V4.2.html" seamless></iframe>
+  </div>
+</div>
+<script src="js/jquery-3.4.1.js"></script> 
+<script type="text/javascript">
+	/*缓缓展开二级菜单*/
+$(document).ready(function () {
+    $(".first").hover(function () {
+        $(".second").toggle(1000);
+    });
+});
+/*加载动画持续与淡出*/
+$(document).ready(function () {
+    setTimeout(function () {
+        $("#loadingbg").fadeOut(2000);
+        $("#loadingdiv").fadeOut(2000);
+    }, 2000);
+});
+/*点击下一页按钮，向上主页抽出*/
+$(document).ready(function () {
+    $("#movebotton").click(function () {
+        $("#big1").animate({
+            top: "-100vh"
+        }, 1000);
+    });
+});
+/*点击下一页按钮，显出返回头条按钮*/
+$(document).ready(function () {
+    $("#movebotton").click(function () {
+        setTimeout(function () {
+            $("#return").toggle(1000);
+        }, 300);
+    });
+});
+/*点击返回按钮，主页返回*/
+$(document).ready(function () {
+    $("#return").click(function () {
+        $("#big1").animate({
+            top: "0vh"
+        }, 1000);
+    });
+});
+/*点击返回按钮，隐藏返回头条按钮*/
+$(document).ready(function () {
+    $("#return").click(function () {
+        setTimeout(function () {
+            $("#return").toggle(1000);
+        }, 100);
+    });
+});
+/*轮播图*/
+function move() {
+    $("#move").animate({
+        top: '-=20px',
+    });
+    $("#move").animate({
+        top: '+=20px',
+    });
+};
+setInterval("move()", 0);
+var i = 0,
+    timer;
+var sum = $(".image li").length;
+$(function () {
+    $(".image li").eq(0).show();
+ 
+    $(".newsbox").hover(function () {
+        $(".arrow").show();
+        clearInterval(timer);
+    }, function () {
+        $(".arrow").hide();
+        iLunbo();
+    })
+    iLunbo();
+ 
+    $(".arrow").hover(function () {
+        clearInterval(timer);
+    });
+    /*左箭头控制轮播*/
+    $(".left").click(function () {
+        clearInterval(timer);
+        if (i == 0) {
+            i = sum;
+        }
+        i--;
+        startLunbo();
+        iLunbo();
+    });
+    /*右箭头控制轮播*/
+    $(".right").click(function () {
+        clearInterval(timer);
+        if (i == sum - 1) {
+            i = -1;
+        }
+        i++;
+        startLunbo();
+        iLunbo();
+    });
+    /*提示信息变换*/
+    $(".num>li").hover(function () {
+        clearInterval(timer);
+        i = $(this).index();
+        console.log(i);
+        startLunbo();
+    });
+});
+/*自动轮播*/
+function iLunbo() {
+    timer = setInterval(function () {
+        i++;
+        if (i == sum - 1) {
+            i = -1;
+        }
+        startLunbo();
+    }, 4000)
+}
+/*图片轮播和提示信息*/
+function startLunbo() {
+    if (i == 6) {
+        i = 0;
+    }
+    $(".image>li").eq(i).fadeIn().siblings().fadeOut();
+    $(".num>li").eq(i).addClass("current").siblings().removeClass("current");
+}
+//右侧导航伸缩效果
+var right_nav = $(".right_nav");
+var tempS;
+$(".right_nav").hover(function () {
+    var thisObj = $(this);
+    tempS = setTimeout(function () {
+        thisObj.find("li").each(function (i) {
+            var tA = $(this);
+            setTimeout(function () {
+                tA.animate({
+                    right: "0"
+                }, 200);
+            }, 50 * i);
+        });
+    }, 200);
+}, function () {
+    if (tempS) {
+        clearTimeout(tempS);
+    }
+    $(this).find("li").each(function (i) {
+        var tA = $(this);
+        setTimeout(function () {
+            tA.animate({
+                right: "-70"
+            }, 200, function () {});
+        }, 50 * i);
+    });
+});
+ 
+//右侧导航点击事件
+$(".right_nav li").each(function (i) {
+    if (i == 12 || i == 13 || i == 14) {
+        $(this).mouseover(function () {
+            $(this).children(".hideBox").stop().fadeIn();
+            right_nav.css('overflow', 'visible')
+        });
+        $(this).mouseout(function () {
+            $(this).children(".hideBox").hide();
+            right_nav.css('overflow', 'hidden')
+        });
+    }
+})
+//goto点击进入嵌入二级网页,并设置返回按钮
+$(document).ready(function () {
+    $("#study").click(function () {
+        $("#showstudy").toggle(1000);
+        $("#return1").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#return1").click(function () {
+        $("#showstudy").toggle(1000);
+        $("#return1").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#ziyuan").click(function () {
+        $("#showxinxi").toggle(1000);
+        $("#return2").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#return2").click(function () {
+        $("#showxinxi").toggle(1000);
+        $("#return2").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#china").click(function () {
+        $("#showchina").toggle(1000);
+        $("#return3").toggle(1000);
+    });
+});
+$(document).ready(function () {
+    $("#return3").click(function () {
+        $("#showchina").toggle(1000);
+        $("#return3").toggle(1000);
+    });
+});
+ 
+//guide点击进入嵌入二级网页,并设置返回按钮
+$(document).ready(function () {
+    $(".study1").click(function () {
+        setTimeout(function () {
+            $("#showstudy").toggle(1000);
+            $("#return11").toggle(1000);
+        }, 200);
+        $("#big1").animate({
+            top: "-100vh"
+        }, 1000);
+    });
+});
+$(document).ready(function () {
+    $("#return11").click(function () {
+        $("#showchina").toggle(1000);
+        $("#return11").toggle(1000);
+        $("#big1").animate({
+            top: "0vh"
+        }, 1000);
+    });
+});
+$(document).ready(function () {
+    $(".xinxi1").click(function () {
+        setTimeout(function () {
+            $("#showxinxi").toggle(1000);
+            $("#return21").toggle(1000);
+        }, 200);
+        $("#big1").animate({
+            top: "-100vh"
+        }, 1000);
+    });
+});
+$(document).ready(function () {
+    $("#return21").click(function () {
+        $("#showxinxi").toggle(1000);
+        $("#return21").toggle(1000);
+        $("#big1").animate({
+            top: "0vh"
+        }, 1000);
+    });
+});
+$(document).ready(function () {
+    $(".china1").click(function () {
+        setTimeout(function () {
+            $("#showchina").toggle(1000);
+            $("#return31").toggle(1000);
+        }, 200);
+        $("#big1").animate({
+            top: "-100vh"
+        }, 1000);
+    });
+});
+$(document).ready(function () {
+    $("#return31").click(function () {
+        $("#showchina").toggle(1000);
+        $("#return31").toggle(1000);
+        $("#big1").animate({
+            top: "0vh"
+        }, 1000);
+    });
+});
+</script>
+</body>
+</html>
