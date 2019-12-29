@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--作者by张亮  右侧悬浮菜单：部分修改自csdn-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style data-merge-styles="true"></style>
+<title>认识祖国</title>
+<link rel="shortcut icon" href="https://www.z4a.net/images/2019/12/29/ico4cb06e3effcb4b02.png">
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+body {
+	cursor: url("https://www.z4a.net/images/2019/12/29/mouse1.png"), default;
+    background: pink;
+    height: 100%;
+    font: "Microsoft yahei", Arial;
+    padding-bottom: 30px;
+}
+a {
+    color: black;
+    text-decoration: none;
+	cursor: url("https://www.z4a.net/images/2019/12/29/mouse2.png"), pointer;
+}
+a:hover {
+    color: red!important;
+}
+#bbox {
+    width: 100%;
+    height: 800px;
+    background-image: url("https://www.z4a.net/images/2019/12/29/redchinabgbg.png");
+    position: relative;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+}
+#redchinalogo {
+    width: 206px;
+    height: 69px;
+    position: absolute;
+    top: 20px;
+    transform: translateX(-400px);
+}
+#title {
+    width: 300px;
+    margin: 3% auto 0;
+}
+#title h2 {
+    font-size: 18px;
+}
+#wrapper {
+    width: 980px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    border: 1px solid #a3a3a3;
+    padding: 20px 20px 50px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+#wrapper h3 {
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0;
+}
+/* box */
+.box {
+    width: 1024px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+}
+.tab_menu {
+    overflow: hidden;
+}
+.tab_menu li {
+    width: 256px;
+    float: left;
+    height: 60px;
+    line-height: 30px;
+    color: #fff;
+    background: rgb(214,64,51);
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 60px;
+}
+.tab_menu li.current {
+    color: #333;
+    background: rgb(238,119,48);
+}
+.tab_menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+.tab_menu li.current a {
+    color: #fff;
+    font-weight: 800;
+}
+.tab_box {
+}
+.tab_box .hide {
+    display: none;
+}
+.redchina {
+    background-image: url("https://www.z4a.net/images/2019/12/29/redchinabg.png");
+    width: 984px;
+    height: 550px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.redchinabig {
+    width: 26px;
+    padding: 40px;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 400;
+}
+.redchinabig a {
+    color: red;
+}
+.redchinavideo {
+    width: 150px;
+    height: 100px;
+    margin-top: 20px;
+    float: left;
+    margin-right: 15px;
+    background-size: 100%;
+    background-position: center center;
+    position: relative;
+}
+.video1 {
+    background-image: url("https://www.z4a.net/images/2019/12/29/video1.jpg");
+}
+.video2 {
+    background-image: url("https://www.z4a.net/images/2019/12/29/video2.jpg");
+}
+.video3 {
+    background-image: url("https://www.z4a.net/images/2019/12/29/video3.jpg");
+}
+.video4 {
+    background-image: url("https://www.z4a.net/images/2019/12/29/video4.jpg");
+}
+.redchinavideoword {
+    width: inherit;
+    font-size: 14px;
+    height: 24px;
+    background-color: rgba(0,0,0,0.80);
+    line-height: 24px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.redchinavideoword a {
+    height: inherit;
+    width: 116px;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.redchinavideoword a:hover {
+    color: red;
+}
+#redchinaresearch {
+    padding: 20px;
+    text-align: center;
+}
+#redchinaresearch ul li {
+    float: left;
+    width: 100px;
+    font-size: 16px;
+    height: 16px;
+    padding: 13px;
+}
+#redchinaresearch ul li:hover {
+    color: red;
+    cursor: pointer;
+}
+#redchinaresearch ul li ul {
+    display: none;
+    border: 1px solid red;
+}
+#redchinaresearch ul li:hover ul {
+    display: block;
+}
+#redchinaresearch ul li ul li {
+    background-color: lightcoral;
+    width: 500px;
+    height: 20px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 15px;
+    position: relative;
+}
+.read {
+    width: 120px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 35px;
+    background-color: rgb(198,76,59);
+    float: right;
+    margin-right: 10px;
+    text-align: center;
+}
+.read a {
+    color: white;
+}
+.redmemoryimage {
+    width: 221px;
+    height: 150px;
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.7);
+    text-align: center;
+}
+.redmemoryimage a {
+    color: white;
+}
+#redmemorytitle {
+    width: 26px;
+    height: 100%;
+    margin-left: 50px;
+    font-size: 26px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    border-right: red 1px solid;
+}
+#redmemoryword {
+    padding: 40px;
+    width: 480px;
+    height: inherit;
+}
+#redmemoryword a {
+    display: block;
+    width: 400px;
+    line-height: 25px;
+    height: 25px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.historystudy {
+    width: 450px;
+    height: inherit;
+    padding: 0px 40px;
+    float: left;
+}
+.historystudy h1 {
+    color: red;
+    height: 40px;
+    line-height: 40px;
+    font-size: 32px;
+    margin: 20px 0px;
+}
+.historystudy a {
+    display: block;
+    width: 450px;
+    line-height: 25px;
+    height: 40px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.beautychina {
+    width: 100%;
+    height: 860px;
+    background-image: linear-gradient(rgb(231, 212, 178, 1.00), rgb(255,255,255));
+    display: flex;
+    justify-content: center;
+}
+.bcbox {
+    margin-top: 40px;
+    width: 1024px;
+    height: 820px;
+    float: left;
+}
+.bcbox table tbody tr td {
+    width: 240px;
+    height: 167px;
+    position: relative;
+}
+.bcbox table tbody tr td img {
+    width: 100%;
+    height: 100%;
+}
+.bcword {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    width: inherit;
+    background-color: rgba(0,0,0,0.50);
+}
+.bcword a {
+    display: block;
+    color: white;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+}
+.bctitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bctitle a {
+    display: block;
+    height: 80px;
+    color: red;
+    font-size: 40px;
+    line-height: 45px;
+}
+.camerachina {
+    background-image: linear-gradient(rgb(255,255,255), pink)!important;
+    height: 1260px!important;
+}
+.camerabox {
+    border-top: 1px dashed skyblue;
+    padding-top: 0!important;
+    height: 1210px!important;
+}
+#link {
+    width: 1000px;
+    height: 150px;
+    background-color: rgb(248, 235, 217, 0.8);
+    margin: 0 auto;
+    border-radius: 10px;
+}
+#bottom {
+    width: 100%;
+    height: 160px;
+}
+#bleft {
+    width: 150px;
+    height: 120px;
+    margin-top: 20px;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    border-right: solid 1px rgb(222, 222, 222);
+}
+#bright {
+    width: 840px;
+    height: 120px;
+    margin-top: 15px;
+    float: left;
+    font-size: 18px;
+}
+#bright a {
+    display: inline-block;
+    color: #111;
+    overflow: hidden;
+    margin-top: 0px;
+    margin-bottom: 4px;
+    margin-left: 25px;
+    line-height: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script> 
+<script src="js/jquery.tabs.js"></script> 
+<script src="js/jquery.lazyload.js"></script> 
+<script type="text/javascript">
+$(function(){
+
+	$("img[original]").lazyload({ placeholder:"images/color3.gif" });
+	
+	$('.demo1').Tabs();
+	$('.demo2').Tabs({
+		event:'click'
+	});
+	$('.demo3').Tabs({
+		timeout:300
+	});
+	$('.demo4').Tabs({
+		auto:5000
+	});
+	$('.demo5').Tabs({
+		event:'click',
+		callback:lazyloadForPart
+	});
+	//部分区域图片延迟加载
+	function lazyloadForPart(container) {
+		container.find('img').each(function () {
+			var original = $(this).attr("original");
+			if (original) {
+				$(this).attr('src', original).removeAttr('original');
+			}
+		});
+	}
+});	
+</script>
+<div id="bbox">
+  <div id="redchinalogo"><a href="https://www.xuexi.cn/482f31e90c481f2161a19ecfcbb91f8b/e6109f421e472b4399b006ba21bc2ecd.html"><img src="https://www.z4a.net/images/2019/12/29/redchinalogo.png" width="206" height="89" alt=""/></a></div>
+  <div class="box demo4">
+    <ul class="tab_menu">
+      <li class="current"><a href="https://www.xuexi.cn/92823c49728c887dd36bc95080ad1254/5957f69bffab66811b99940516ec8784.html">永远的丰碑</a></li>
+      <li class=""><a href="">经典著作</a></li>
+      <li class=""><a href="https://www.xuexi.cn/6bda6faf71e2cc7deadad8b987559837/3327325a8f7d6515f14167937138defa.html">红色记忆</a></li>
+      <li class=""><a href="https://www.xuexi.cn/6ed41de4c62167fd91aa99f8eeccbca5/99115d0e9a0ed7b850871a8c6b3ea132.html">党史学史</a></li>
+    </ul>
+    <div class="tab_box">
+      <div class="">
+        <ul>
+          <div class="redchina">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%" >
+              <tbody>
+                <tr style="height: 350px;">
+                  <td class="redchinabig"><a href="https://www.xuexi.cn/92823c49728c887dd36bc95080ad1254/5957f69bffab66811b99940516ec8784.html">永远的丰碑</a></td>
+                  <td style="font-size: 16px;padding: 20px;line-height: 30px;width: 386px;position: relative;"><a href="https://www.xuexi.cn/853202066d5d67c17366dfe827962430/e43e220633a65f9b6d8b53712cba9caa.html">李大钊：中国共产党的创始人之一</a><br>
+                    <a href="https://www.xuexi.cn/eecf5827aac034d56c03b5afc5798702/e43e220633a65f9b6d8b53712cba9caa.html">蔡和森：中国共产党工人运动领袖</a><br>
+                    <a href="https://www.xuexi.cn/335ba6555cf84568c148182643911b24/e43e220633a65f9b6d8b53712cba9caa.html">董必武：中国共产党的创始人之一</a><br>
+                    <a href="https://www.xuexi.cn/a7dc0b1855308f4e18825b7642061de5/e43e220633a65f9b6d8b53712cba9caa.html">何叔衡：中国共产党的创始人之一</a><br>
+                    <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=12707845182739917139">方志敏：伟大的共产主义战士</a><br>
+                    <a href="https://www.xuexi.cn/993194f5b34e6ba31365ef446af1eb7f/e43e220633a65f9b6d8b53712cba9caa.html">刘胡兰：生的伟大死的光荣</a><br>
+                    <a href="https://www.xuexi.cn/ea72cbd27f89b9a8474c9a478137d189/e43e220633a65f9b6d8b53712cba9caa.html">马本斋：百战百胜的回民支队司令员</a><br>
+                    <a href="https://www.xuexi.cn/07a8a9cabed5a75837b23506f670d920/e43e220633a65f9b6d8b53712cba9caa.html">左　权：中国工农红军高级指挥员</a>
+                    <div style="position: absolute;bottom: 25px;right: 45px;font-size: 14px;"><a href="https://www.xuexi.cn/92823c49728c887dd36bc95080ad1254/5957f69bffab66811b99940516ec8784.html">查看全部</a></div></td>
+                  <td class="redchinabig"><a href="https://www.xuexi.cn/4426aa87b0b64ac671c96379a3a8bd26/db086044562a57b441c24f2af1c8e101.html#665a">视频专区</a></td>
+                  <td style="position: relative;"><div class="redchinavideo video1">
+                      <div class="redchinavideoword"><img src="https://www.z4a.net/images/2019/12/29/bo.png" width="18" height="18" alt=""/><a href="https://www.xuexi.cn/5260d35fb2bd7689c3d156391d48f9fb/cf94877c29e1c685574e0226618fb1be.html">享誉中外的科学家和教育家——卢嘉锡</a></div>
+                    </div>
+                    <div class="redchinavideo video2">
+                      <div class="redchinavideoword"><img src="https://www.z4a.net/images/2019/12/29/bo.png" width="18" height="18" alt=""/><a href="https://www.xuexi.cn/a230beddbf52ac6b98e8caf41b4f4f76/cf94877c29e1c685574e0226618fb1be.html">生是为中国 死是为中国——刘伯坚</a></div>
+                    </div>
+                    <div class="redchinavideo video3">
+                      <div class="redchinavideoword"><img src="https://www.z4a.net/images/2019/12/29/bo.png" width="18" height="18" alt=""/><a href="https://www.xuexi.cn/7c3ba8cb0989799b756f07a77e926a35/cf94877c29e1c685574e0226618fb1be.html">杰出的红军指挥员——蔡申熙</a></div>
+                    </div>
+                    <div class="redchinavideo video4">
+                      <div class="redchinavideoword"><img src="https://www.z4a.net/images/2019/12/29/bo.png" width="18" height="18" alt=""/><a href="https://www.xuexi.cn/b4aef6345c8f7933074d900f1ef8b9a3/cf94877c29e1c685574e0226618fb1be.html">党的早期农民运动的领导人——罗学瓒</a></div>
+                    </div>
+                    <div style="position: absolute;bottom: 25px;right: 25px;font-size: 14px;"><a href="https://www.xuexi.cn/4426aa87b0b64ac671c96379a3a8bd26/db086044562a57b441c24f2af1c8e101.html#665a">查看全部</a></div></td>
+                </tr>
+                <tr height="200px">
+                  <td class="redchinabig" style="font-size: 20px;padding:0 40px;"><a href="https://www.xuexi.cn/12caa7607ae8d2460f55319c585f59a5/a086658e8b5358ef19c67cbed58dcbe6.html">中国精神研究</a></td>
+                  <td colspan="3" id="redchinaresearch"><ul>
+                      <li>中国精神
+                        <ul>
+                          <li><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=6404432319772865432">弘扬中国人民的伟大精神 书写新时代的史诗传奇</a></li>
+                          <li><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=16908112364884135728">为中国发展和人类文明进步提供强大精神动力</a></li>
+                          <li><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=4020335028116237896">“中国精神”辉耀征程</a></li>
+                          <li><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=2345388168790214522">中国精神激励新征程</a></li>
+                          <li><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=14324158838538493118">在新时代赓续伟大中国精神</a></li>
+                          <li><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=18007692423887103940">中国精神的时代精华</a></li>
+                        </ul>
+                      </li>
+                      <li>民族精神</li>
+                      <li>爱国主义精神</li>
+                      <li>时代精神</li>
+                      <li>五四精神</li>
+                      <li>红船精神</li>
+                      <li>井冈山精神</li>
+                      <li>长征精神</li>
+                      <li>延安精神</li>
+                      <li>抗战精神</li>
+                      <li>西柏坡精神</li>
+                      <li>红岩精神</li>
+                      <li>抗美援朝精神</li>
+                      <li>铁人精神</li>
+                      <li>两弹一星精神</li>
+                      <li>红旗渠精神</li>
+                      <li>焦裕禄精神</li>
+                      <li>雷峰精神</li>
+                      <li>女排精神</li>
+                      <li>九八抗洪精神</li>
+                      <li>北京奥运精神</li>
+                      <li>载人航天精神</li>
+                      <li>塞罕坝精神</li>
+                      <li>改革开放精神</li>
+                    </ul></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ul>
+      </div>
+      <div class="hide">
+        <ul>
+          <div class="redchina">
+            <table width="940" border="0" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td><img src="https://www.z4a.net/images/2019/12/29/mzdxj.png" width="188" height="208" alt=""/></td>
+                  <td><img src="https://www.z4a.net/images/2019/12/29/dxpwx.png" width="188" height="208" alt=""/></td>
+                  <td><img src="https://www.z4a.net/images/2019/12/29/jxmwx.png" width="188" height="208" alt=""/></td>
+                  <td><img src="https://www.z4a.net/images/2019/12/29/hjtwx.png" width="188" height="208" alt=""/></td>
+                  <td><img src="https://www.z4a.net/images/2019/12/29/xjpwx.png" width="188" height="208" alt=""/></td>
+                </tr>
+                <tr>
+                  <td><div class="read"><a href="https://www.xuexi.cn/d33532b98fe72a6a864d64aeac3d540d/e15740a2c58b549c28adaabd21aa90fa.html?p1=%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86">点 击 阅 读</a></div></td>
+                  <td><div class="read"><a href="https://www.xuexi.cn/d33532b98fe72a6a864d64aeac3d540d/e15740a2c58b549c28adaabd21aa90fa.html?p1=%E9%82%93%E5%B0%8F%E5%B9%B3%E6%96%87%E9%80%89">点 击 阅 读</a></div></td>
+                  <td><div class="read"><a href="https://www.xuexi.cn/d33532b98fe72a6a864d64aeac3d540d/e15740a2c58b549c28adaabd21aa90fa.html?p1=%E6%B1%9F%E6%B3%BD%E6%B0%91%E6%96%87%E9%80%89">点 击 阅 读</a></div></td>
+                  <td><div class="read"><a href="https://www.xuexi.cn/d33532b98fe72a6a864d64aeac3d540d/e15740a2c58b549c28adaabd21aa90fa.html?p1=%E8%83%A1%E9%94%A6%E6%B6%9B%E6%96%87%E9%80%89">点 击 阅 读</a></div></td>
+                  <td><div class="read"><a href="https://www.xuexi.cn/xxqg.html?id=1ih66mgksnf1ih66mgksnf1ih66mgksn">点 击 阅 读</a></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ul>
+      </div>
+      <div class="hide">
+        <ul>
+          <div class="redchina">
+            <table style="margin-left: 35px;" width="442" border="0" cellspacing="10" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td><div class="redmemoryimage"><a href="https://www.xuexi.cn/bce16eab92e83410ea65c6271e0c018d/51dce305b4df75f31f5f6b4a901cd164.html"><img src="https://www.z4a.net/images/2019/12/29/agzy.png" width="221" height="124" alt=""/> 爱国主义教育基地</a></div></td>
+                  <td><div class="redmemoryimage"><a href="https://www.xuexi.cn/f1474197021436b35da2b15f5b6fa033/a137d7bfc3d69caacc9a4cae8ceb6bfe.html"><img src="https://www.z4a.net/images/2019/12/29/czjn.png" width="221" height="124" alt=""/> 长征纪念馆纪念地</a></div></td>
+                </tr>
+                <tr>
+                  <td><div class="redmemoryimage"><a href="https://www.xuexi.cn/4184100b60d3a40e8ab3e12c6525441e/1cd9fe044fd642f9b30a1cf543ed1b3f.html"><img src="https://www.z4a.net/images/2019/12/29/kzjn.png" width="221" height="124" alt=""/> 抗战纪念馆纪念地</a></div></td>
+                  <td><div class="redmemoryimage"><a href="https://www.xuexi.cn/86b977afeb63e15c17990cbac0e3a590/2cd0f6c076453d2bff51e4a4157cedea.html"><img src="https://www.z4a.net/images/2019/12/29/jfzz.jpg" width="221" height="124" alt=""/> 解放战争纪念馆纪念地</a></div></td>
+                </tr>
+                <tr>
+                  <td><div class="redmemoryimage"><a href="https://www.xuexi.cn/c8ba862f56a93de6d2f89bd713c32ffa/0524d8e4bc7dab96754a0a489235897a.html"><img src="https://www.z4a.net/images/2019/12/29/hsly.jpg" width="221" height="124" alt=""/> 红色旅游经典景区</a></div></td>
+                  <td><div class="redmemoryimage"><a href="https://www.xuexi.cn/697e6a8aeafd832edf72f9aa135d5cfb/372682a66c2b2800f162af236424c171.html"><img src="https://www.z4a.net/images/2019/12/29/hsly1.jpg" width="221" height="124" alt=""/> 红色旅游精品路线</a></div></td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="redmemorytitle"> 党 史 故 事</div>
+            <div id="redmemoryword"><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=10747457547880107254">聂荣臻的《树叶训令》</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=15882762027768004357">党性作风100典——陈毅：500万市民在他心中的分量</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=15693087578537839325">车耀先狱中寄语儿女</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=3258670213658888695">【英雄烈士谱】陈士欣：用生命书写赤诚</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=7553295860938310956">沈安娜：战斗在敌人心脏的无名英雄</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=12346361256545042467">焦裕禄为什么要制定《干部十不准》？</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=9238616086676343021">战士作家高玉宝——一段无法抹掉的红色记忆</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=7775161077869280069">【英雄烈士谱】栾军：用生命捍卫誓言</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=10504741162790318487">【英雄烈士谱】李玉坤：中弹刹那，他最后一次扣动扳机
+              击毙歹徒</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=14124683843646762592">【英雄烈士谱】尽忠报国抗日捐躯的英雄——郑作民</a><br>
+              <a href="https://www.xuexi.cn/lgpage/detail/index.html?id=16821692098015577803">又逢“南京大屠杀死难者国家公祭日”，今天我们讲四个
+              故事</a><br>
+              <a href="https://www.xuexi.cn/a626e7afac9036a3c48a3db17cdf0d6b/5957f69bffab66811b99940516ec8784.html"><span style="float: right">查看全部</span></a><br>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <div class="hide">
+        <ul>
+          <div class="redchina">
+            <div style="border-right: 1px solid red" class="historystudy">
+              <h1>党史学习</h1>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=3336491680617803030">红军第一支正规妇女武装：红四方面军妇女独立师</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=16286991118760362661">新中国第一条地铁:浅埋施工 平稳运行</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=7886671526313410354">新中国峥嵘岁月|中国共产党第十九次全国代表大会</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=1859550136555982590">【新中国的“第一”】一桥跨南北 天堑变通途</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=15064759987734176153">新四军8分钟攻克敌据点</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=13207064941920631851">新中国峥嵘岁月|朱日和阅兵</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=1392804288225288967">【新中国的“第一”】首次提供高考盲文试卷</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=7119173211727362467">被罗炳辉誉为“铁军”的桂阳游击队</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=5458406314217603118">新中国峥嵘岁月|第一艘国产航母成功下水</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=17046890177724014299">新中国峥嵘岁月|坚定不移推进全面从严治党</a></p>
+              <p><a style="float:right;width: 100px;" href="https://www.xuexi.cn/35635435be41dacf475c07d0a94e3f6a/8c5129d583985f2380c340b69c8f4734.html">查看全部</a></p>
+            </div>
+            <div class="historystudy">
+              <h1>党史研究</h1>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=15342273811125070915">毫不动摇坚持和发展中国特色社会主义</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=9987045723797286184">护好用好红色资源</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=16302978545757588218">毫不动摇坚持党对人民军队的绝对领导—— 纪念古田会议胜利召开90周年</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=18416544605702517920">对党绝对忠诚的杨靖宇</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=10905772221870932855">邓小平论坚持和完善社会主义制度</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=12761490030383565046">马克思称谓的早期中国表达</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=12117502946162475701">党的请示报告制度的历史审视</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=11874157713009458761">建立一个什么样的新中国——重温《论人民民主专政》</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=2577668622218135871">中华民族迈向伟大复兴的光辉历程</a></p>
+              <p><a href="https://www.xuexi.cn/lgpage/detail/index.html?id=14830632084798242503">汇聚正义捍卫和平——长春苏联红军烈士纪念塔碑</a></p>
+              <p><a style="float:right;width: 100px;" href="https://www.xuexi.cn/e85d4f098b1153e29d96cec73c8d97c9/5957f69bffab66811b99940516ec8784.html">查看全部</a></p>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="beautychina">
+  <div class="bcbox"><img src="https://www.z4a.net/images/2019/12/29/beautychinalogo.png" width="200" alt=""/>
+    <table width="1024" border="0" cellspacing="10px" cellpadding="0">
+      <tbody>
+        <tr>
+          <td class="bctitle"><a href="https://www.xuexi.cn/2a0e022bbb59ace47f9d1a36fa830120/b194a03c70fcc97418903b44a742683e.html">走遍中国<br>
+            风景名胜</a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc11.jpg" alt=""/>
+            <div class="bcword"><a href="https://www.xuexi.cn/d9468c79b9cdb912247c89e6511b3278/e43e220633a65f9b6d8b53712cba9caa.html">医巫闾山风景名胜区</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc12.jpg" alt=""/>
+            <div class="bcword"><a href="https://www.xuexi.cn/21e2cf8ff0a373f679906b2aafb593fa/e43e220633a65f9b6d8b53712cba9caa.html">青山沟风景名胜区</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc13.jpg" alt=""/>
+            <div class="bcword"><a href="https://www.xuexi.cn/38ba85cfbc4c24771cd5fcf3d41ebaf1/e43e220633a65f9b6d8b53712cba9caa.html">大连海滨——旅顺口风景名胜区</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="https://www.xuexi.cn/f93957a55e0f388f4e9a49ce24b9b4e3/1a896e4046612625219fecf149d41b0c.html">国家历史<br>
+            文化名城</a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc21.jpg" alt="https://www.xuexi.cn/d89d6e3de3a9082c5b656e9b6dcf4d8c/e43e220633a65f9b6d8b53712cba9caa.html"/>
+            <div class="bcword"> <a href="">长沙市</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc22.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/2675e1ac2cf4e0ca20d00c7b96810211/e43e220633a65f9b6d8b53712cba9caa.html">大同市</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc23.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/7185186096943c083a491c59bcbaa13c/e43e220633a65f9b6d8b53712cba9caa.html">平遥县</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="https://www.xuexi.cn/29581fe1a34fd2cda3f45d15f0bcd42e/9a3668c13f6e303932b5e0e100fc248b.html">中国历史<br>
+            名镇名村</a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc31.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/5f8d387408e5c3c81f7375e1012d92a9/e43e220633a65f9b6d8b53712cba9caa.html">新疆富蕴县可可托海镇</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc32.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/f4d43ed22f453f6f522197780d7bd536/e43e220633a65f9b6d8b53712cba9caa.html">新疆霍城县惠远镇</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc33.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/ed8d84af92680ffc45fd51855c1655b9/e43e220633a65f9b6d8b53712cba9caa.html">新疆鄯善县鲁克沁镇</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="https://www.xuexi.cn/d9f083e864456764c6c75d9740cebe5d/9a3668c13f6e303932b5e0e100fc248b.html">中国历史<br>
+            文化街区</a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc41.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/a0ed303bd042eeaac2233bd6fa08ac3f/e43e220633a65f9b6d8b53712cba9caa.html">北京市皇城历史文化街区</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc42.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/935f675382ec17b978332e8ac74c3e06/e43e220633a65f9b6d8b53712cba9caa.html">北京市大栅栏历史文化街区</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/bc43.jpg" alt=""/>
+            <div class="bcword"> <a href="https://www.xuexi.cn/63d293c3ae9ea58f52e7c54ca87ca45b/e43e220633a65f9b6d8b53712cba9caa.html">天津市五大道历史文化街区</a></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="beautychina camerachina">
+  <div class="bcbox camerabox"><img style="display: block;margin-top: 40px;" src="https://www.z4a.net/images/2019/12/29/canamechina.png" width="200" alt=""/>
+    <table width="1024" border="0" cellspacing="10px" cellpadding="0">
+      <tbody>
+        <tr>
+          <td class="bctitle"><a href="">中国<br>
+            相册 </a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc11.jpg" alt=""/>
+            <div class="bcword"><a href="">中国跨度</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc12.jpg" alt=""/>
+            <div class="bcword"><a href="">中国高度</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc13.jpg" alt=""/>
+            <div class="bcword"><a href="">中国速度</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="">最美<br>
+            中国 </a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc21.jpg" alt=""/>
+            <div class="bcword"><a href="">贵州铜仁：锦江初冬景色美如画</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc22.jpg" alt=""/>
+            <div class="bcword"><a href="">甘肃张掖：霞光鹅影景如画</a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc23.jpg" alt=""/>
+            <div class="bcword"><a href="">浙江湖州：航拍太湖美景</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="">&ensp;最美&ensp;<br>
+            中国人 </a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc31.jpg" alt=""/>
+            <div class="bcword"><a href=""> 向劳动者致敬 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc32.jpg" alt=""/>
+            <div class="bcword"><a href="">城市建设者 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc33.jpg" alt=""/>
+            <div class="bcword"><a href="">电力守护者</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="">历史<br>
+            瞬间 </a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc41.jpg" alt=""/>
+            <div class="bcword"><a href=""> 抚顺露天煤矿 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc42.jpg" alt=""/>
+            <div class="bcword"><a href="">父子民兵 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc43.jpg" alt=""/>
+            <div class="bcword"><a href="">到处都是我们的宿营地</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="">我和我的<br>
+            &emsp;祖国&emsp; </a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc51.jpg" alt=""/>
+            <div class="bcword"><a href=""> 教育70年图片展：1949-1976 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc52.jpg" alt=""/>
+            <div class="bcword"><a href="">教育70年图片展：1977-2012 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc53.jpg" alt=""/>
+            <div class="bcword"><a href="">教育70年图片展：2013-2019</a></div></td>
+        </tr>
+        <tr>
+          <td class="bctitle"><a href="">镜头里的<br>
+            中国故事 </a></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc61.jpg" alt=""/>
+            <div class="bcword"><a href=""> 疯狂跳火堆 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc62.jpg" alt=""/>
+            <div class="bcword"><a href="">古镇长桌宴 </a></div></td>
+          <td><img src="https://www.z4a.net/images/2019/12/29/cc63.jpg" alt=""/>
+            <div class="bcword"><a href="">后继有人</a></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="bottom">
+  <div id="link">
+    <div id="bleft">友情链接</div>
+    <div id="bright"><a data-locations="0" href="http://www.people.com.cn/">人民网</a><a data-locations="1" href="http://www.xinhuanet.com/">新华网</a><a data-locations="2" href="http://www.china.com.cn/">中国网</a><a data-locations="3" href="http://www.cctv.com/">央视网</a><a data-locations="4" href="http://www.cri.cn/">国际在线</a><a data-locations="5" href="http://cn.chinadaily.com.cn/">中国日报网</a><a data-locations="6" href="http://www.youth.cn/">中国青年网</a><a data-locations="7" href="http://www.ce.cn/">中国经济网</a><a data-locations="8" href="http://www.chinanews.com/">中国新闻网</a><a data-locations="9" href="http://www.gmw.cn/">光明网</a><a data-locations="10" href="http://www.cnr.cn/">央广网</a><a data-locations="11" href="http://www.workercn.cn/">中工网</a><a data-locations="12" href="http://www.dangjian.cn/">党建网</a><a data-locations="13" href="http://www.cyol.com/">中青在线</a><a data-locations="14" href="http://www.81.cn/">中国军网</a><a data-locations="15" href="http://www.legaldaily.com.cn/">法制网</a><a data-locations="16" href="http://www.qstheory.cn/">求是网</a><a data-locations="17" href="http://www.cac.gov.cn/">中国网信网</a><a data-locations="18" href="http://www.wenming.cn/">中国文明网</a><a data-locations="19" href="http://www.gov.cn/">中国政府网</a><a data-locations="20" href="http://www.moe.gov.cn/">教育部网站</a><a data-locations="21" href="http://www.mod.gov.cn/">国防部网站</a><a data-locations="22" href="http://www.mct.gov.cn/">文化和旅游部网站</a><a data-locations="23" href="http://www.scio.gov.cn/index.htm">国新办网站</a><a data-locations="24" href="http://www.shdf.gov.cn/">中国扫黄打非网</a><a data-locations="25" href="http://www.womenvoice.cn">女性之声</a><a data-locations="26" href="http://www.cnpiw.cn/index.html">中国报业</a><a data-locations="27" href="http://www.12377.cn/">中央网信办举报中心</a><a data-locations="28" href="http://www.qianlong.com/">千龙网</a><a data-locations="29" href="http://www.cssn.cn/">中国社会科学网</a><a data-locations="30" href="http://www.stdaily.com/">中国科技网</a><a data-locations="31" href="http://www.farmer.com.cn/">中国农业新闻网</a><a data-locations="32" href="https://www.1958xy.com/">西影网</a><a data-locations="33" href="http://www.12348.gov.cn/">中国法律服务网</a><a data-locations="34" href="http://www.legalinfo.gov.cn/">中国普法网</a><a data-locations="35" href="http://www.tibet.cn/">中国西藏网</a><a data-locations="36" href="http://www.cnwomen.com.cn/">中国妇女网</a><a href="http://www.jxufe.cn//">江西财经大学</a></div>
+  </div>
+</div>
+</body>
+</html>
